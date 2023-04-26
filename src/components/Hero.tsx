@@ -11,9 +11,9 @@ const Hero = () => {
         alt="Hamza's personal headshot"
       />
       <div className="hero-text">
-        <h1>Hey, I'm Muhammad Hamza Ashraf 👋</h1>
+        <h1>Hey, I&apos;m Muhammad Hamza Ashraf 👋</h1>
         <p>
-          I'm a Software Developer | Web Developer based in Lahore, Pakistan. I
+          I&apos;m a Software Developer | Web Developer based in Lahore, Pakistan. I
           specialize in building (and occasionally designing) exceptional
           websites, applications, and everything in between.
         </p>
