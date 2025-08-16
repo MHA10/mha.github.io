@@ -1,0 +1,159 @@
+Kot Lakhpat
+Lahore, Pakistan
+(92) 320-4102829
+mhamza.141097@gmail.com
+
+Muhammad Hamza Ashraf
+Backend Technical Lead,
+A focused and diligent Software Engineer, passionate about learning new skills
+LinkedIn | GitHub
+
+WORK EXPERIENCE
+
+TECHNICAL SKILLS and TOOLS
+
+Coding Crafts, Lahore — Backend Technical Team Lead
+JavaScript - TypeScript - Python -
+
+APRIL 2022 - PRESENT
+●​
+●​
+●​
+
+PHP - Go
+
+Developing web-applications / scripts / automations / 3rd party integrations
+Leading Backend team
+Mentoring / Training juniors - Designing Training programs
+
+NodeJS - ExpressJS - NestJS - ReactJS
+- NextJS - Flask - Laravel
+
+Bitpix Soft, Lahore — Backend Developer
+APRIL 2024 - AUGUST 2024
+●​
+
+PostgreSQL - MongoDB - AstraDB -
+
+Implemented backend features
+
+TypeORM - Prisma - SQLAlchemy
+
+Rolustech, Lahore — Full Stack Developer
+SEPT 2020 - APRIL 2022
+●​
+●​
+●​
+
+REST - GraphQL - gRPC
+
+Developed and deployed enterprise solutions
+Customer Journey Plugin for SugarCRM, enhancing CRM functionality
+Certified Sugar Developer Specialist
+
+Blockchain
+
+AWS - Microsoft Azure - Docker
+
+KEY PROJECTS
+CyFy
+●​
+●​
+
+MARCH 2024 - PRESENT
+Designed and implemented smart contracts in TypeScript on Hyperledger Fabric (HLF)
+Administered the HLF network, handling channel configuration and ledger operations
+
+HelloGov
+●​
+●​
+●​
+●​
+●​
+
+AUGUST 2023 - PRESENT
+Architected and built the backend for Expediting Services using NestJS
+Designed and created the database schema (PostgreSQL, MongoDB, CosmosDB) and overall
+system architecture
+Led the backend team, coordinating closely with the frontend and DevOps teams
+Integrated Microsoft Azure services, including CosmosDB and Storage
+Optimized database schema to enhance query performance, reducing execution time
+
+Linux Foundation - Agstack
+●​
+●​
+●​
+●​
+●​
+
+Bewta
+●​
+●​
+
+●​
+
+Engineered features for managing appointments, incorporating complex logic for employee
+availability and location-specific services.
+Executed dynamic scheduling, conflict resolution, and real-time updates for booking,
+rescheduling, and cancellations.
+AUGUST 2022 - SEP 2023
+
+Developed solutions for managing dental lab equipment
+Designed a microservices architecture with Auth0 integration and middleware
+Managed Auth0, including custom database scripts, dashboard administration, and custom flows,
+rules, and hooks
+Linked Auth0 extensions to enhance security and functionality
+
+CrossCheck
+●​
+●​
+
+Interpersonal skills - Collaboration
+Analytical skills - Problem solving
+Critical thinking - Time management
+Empathy & Emotional Intelligence
+Leadership
+
+CERTIFICATIONS
+Generative AI with Large
+Language Models - AWS DeepLearning.ai
+
+IBM Data Science
+
+APRIL 2024 - AUGUST 2024
+
+DentalWhale
+●​
+●​
+●​
+
+NOV 2022 - PRESENT
+
+Contributed significantly to an open-source project under the Linux Foundation
+Created a microservices architecture with Single Sign-On (SSO) using JWT authentication
+Incorporated email services for account activation and enhanced security through API key and
+client secret management
+Built Flask REST APIs and Embedded Google S2 Geometry using the s2sphere Python library
+Authored comprehensive documentation and Jupyter Notebook examples for the APIs
+
+SOFT SKILLS
+
+MAY 2022 - JAN 2023
+
+Programmed a credentials management web application
+Implemented backend development using the specified technologies and integrated the Braintree
+payment gateway
+
+EDUCATION
+FAST NUCES, Lahore — Bachelor of
+Science in Computer Science​
+AUGUST 2016 - AUGUST 2020​
+CGPA 3.30
+
+Beaconhouse School System, Lahore
+— GCE Advanced Level (A-Level)​
+AUGUST 2014 - AUGUST 2016​
+Lahore — GCE Ordinary Level (O-Level)​
+AUGUST 2011 - AUGUST 2014
+
+
