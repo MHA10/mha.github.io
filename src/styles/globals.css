@@ -41,6 +41,19 @@
   box-sizing: border-box;
 }
 
+/* Global text wrapping for all elements */
+*, *::before, *::after {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* Responsive container padding */
+.container {
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -106,16 +119,20 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.875rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+h3 { font-size: clamp(1.3rem, 3vw, 1.875rem); }
+h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+h5 { font-size: clamp(1rem, 2vw, 1.25rem); }
+h6 { font-size: clamp(0.95rem, 1.8vw, 1.125rem); }
 
 p {
   color: var(--text-secondary);
   margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Utility Classes */
@@ -185,6 +202,10 @@ p {
   transition: all 0.3s ease;
 }
 
+.nav-container .logo {
+  flex-shrink: 0;
+}
+
 .nav-container.scrolled {
   background: rgba(10, 10, 11, 0.95);
   box-shadow: var(--shadow-md);
@@ -193,15 +214,91 @@ p {
 .nav-container .logo {
   font-size: 1.75rem;
   font-weight: 700;
+}
+
+.nav-container .logo a {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
   transition: all 0.3s ease;
 }
 
-.nav-container .logo:hover {
+.nav-container .logo a:hover {
   transform: scale(1.05);
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .nav-links {
+    gap: 0.75rem;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.25rem 0;
+  }
 }
 
 .cta-btn {
@@ -314,6 +411,12 @@ hr {
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .hero-container::before {
@@ -323,9 +426,12 @@ hr {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
               radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-container .profile-img {
@@ -334,6 +440,8 @@ hr {
   border-radius: 50%;
   margin: 0 auto 2rem;
   object-fit: cover;
+  object-position: 30% center;
+  background-color: var(--bg-card);
   border: 4px solid var(--accent-primary);
   box-shadow: var(--shadow-xl);
   transition: all 0.3s ease;
@@ -371,7 +479,7 @@ hr {
 }
 
 .hero-container .hero-text h1 {
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
@@ -379,27 +487,30 @@ hr {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.1;
-}
-
-@media screen and (max-width: 768px) {
-  .hero-container .hero-text h1 {
-    font-size: 2.5rem;
-  }
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero-container .hero-text h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 500;
   margin-bottom: 1.5rem;
   color: var(--accent-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-container .hero-text p {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 400;
   margin-bottom: 2rem;
   color: var(--text-secondary);
   line-height: 1.7;
+  text-align: justify;
+  hyphens: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-container .social-icons {
@@ -478,7 +589,7 @@ hr {
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--accent-primary);
   margin-bottom: 0.5rem;
@@ -583,7 +694,7 @@ hr {
 }
 
 .about-container h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
@@ -591,16 +702,20 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-container h3 {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 600;
   margin: 3rem 0 2rem 0;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-container .flex-about {
@@ -629,12 +744,20 @@ hr {
   font-weight: 400;
   line-height: 1.8;
   color: var(--text-secondary);
+  text-align: justify;
+  hyphens: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-container .flex-about .about-text .intro-text {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-primary);
+  text-align: justify;
+  hyphens: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-container .flex-about .about-text .highlight {
@@ -823,7 +946,7 @@ hr {
 
 /* Skills */
 .skills-container {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
   margin: 4rem 0;
   border-radius: var(--radius-xl);
@@ -831,7 +954,7 @@ hr {
 }
 
 .skills-container h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
@@ -839,10 +962,12 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .skills-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 3rem;
@@ -850,11 +975,14 @@ hr {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .skills-categories {
   display: grid;
   gap: 3rem;
+  padding: 0 1rem;
 }
 
 .skill-category {
@@ -862,11 +990,13 @@ hr {
 }
 
 .skill-category h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: var(--accent-primary);
   text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .skills-container .grid-skills {
@@ -876,6 +1006,14 @@ hr {
 }
 
 @media screen and (max-width: 768px) {
+  .skills-container {
+    padding: 4rem 1rem;
+  }
+  
+  .skills-categories {
+    padding: 0 0.5rem;
+  }
+  
   .skills-container .grid-skills {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
@@ -950,11 +1088,13 @@ hr {
 }
 
 .soft-skills-section h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-weight: 600;
   margin-bottom: 2rem;
   text-align: center;
   color: var(--text-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .soft-skills-grid {
@@ -963,6 +1103,24 @@ hr {
   gap: 1.5rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.soft-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.soft-skill-item i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.soft-skill-item span {
+  line-height: 1.4;
 }
 
 .soft-skill-card {
@@ -1028,7 +1186,7 @@ hr {
 }
 
 .projects-container h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
@@ -1036,10 +1194,12 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .projects-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 3rem;
@@ -1047,6 +1207,8 @@ hr {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .projects-grid {
@@ -1178,6 +1340,10 @@ hr {
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
+  text-align: justify;
+  hyphens: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .project-highlights {
@@ -1302,7 +1468,7 @@ hr {
 }
 
 .contact-container h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
@@ -1310,10 +1476,12 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 4rem;
@@ -1321,6 +1489,8 @@ hr {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-content {
@@ -1332,10 +1502,12 @@ hr {
 
 .contact-info h3,
 .contact-form-section h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-weight: 600;
   margin-bottom: 2rem;
   color: var(--text-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-details {

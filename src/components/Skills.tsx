@@ -1,10 +1,11 @@
 import { technicalSkills, softSkills } from "./data";
+import NextJsIcon from "./NextJsIcon";
 
 const Skills = () => {
   const skillIcons: { [key: string]: string } = {
     // Languages
     "JavaScript": "fa-brands fa-js-square",
-    "TypeScript": "fa-brands fa-js-square",
+    "TypeScript": "fa-solid fa-code",
     "Python": "fa-brands fa-python",
     "PHP": "fa-brands fa-php",
     "Go": "fa-solid fa-code",
@@ -71,7 +72,11 @@ const Skills = () => {
             <div className="grid-skills">
               {category.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="skill-card fade-in">
-                  <i className={getSkillIcon(skill)} style={{ color: category.color }}></i>
+                  {skill === "NextJS" ? (
+                    <NextJsIcon style={{ color: category.color }} size={32} />
+                  ) : (
+                    <i className={getSkillIcon(skill)} style={{ color: category.color }}></i>
+                  )}
                   <span>{skill}</span>
                   <div className="skill-level">
                     <div 

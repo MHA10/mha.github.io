@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <div className="hero-container fade-in">
       <Image
-        src="/static/images/profile_1.jpg"
+        src="/static/images/profile_1.png"
         className="profile-img scale-hover"
         width={300}
         height={300}
@@ -38,7 +38,7 @@ const Hero = () => {
         priority
       />
       <div className="hero-text slide-up">
-        <h1>Hey, I&apos;m {personalInfo.name} 👋</h1>
+        <h1>Hey, I&apos;m {personalInfo.shortName} 👋</h1>
         <h2 className="typing-animation">
           {displayText}
           <span className="cursor">|</span>
@@ -50,17 +50,17 @@ const Hero = () => {
         </p>
         <div className="hero-stats">
           <div className="stat-item">
-            <span className="stat-number">4+</span>
+            <span className="stat-number">5+</span>
             <span className="stat-label">Years Experience</span>
           </div>
           <div className="stat-item">
             <span className="stat-number">15+</span>
             <span className="stat-label">Projects Completed</span>
           </div>
-          <div className="stat-item">
+          {/* <div className="stat-item">
             <span className="stat-number">3</span>
             <span className="stat-label">Companies</span>
-          </div>
+          </div> */}
         </div>
         <div className="social-icons">
           <a

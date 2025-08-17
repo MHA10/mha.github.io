@@ -8,7 +8,7 @@ const About = () => {
       <div className="flex-about">
         <div className="about-text">
           <p className="intro-text">
-            {personalInfo.summary} With over 4 years of experience in software development, 
+            {personalInfo.summary} With over 5 years of experience in software development, 
             I specialize in backend architecture, system design, and leading technical teams 
             to deliver scalable, high-performance applications.
           </p>

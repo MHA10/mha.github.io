@@ -1,8 +1,9 @@
 // Personal Information
 export const personalInfo = {
   name: "Muhammad Hamza Ashraf",
+  shortName: "Hamza",
   title: "Backend Technical Lead",
-  location: "Kot Lakhpat, Lahore, Pakistan",
+  location: "Lahore, Pakistan",
   phone: "(92) 320-4102829",
   email: "mhamza.141097@gmail.com",
   linkedin: "https://linkedin.com/in/muhammad-hamza-ashraf",
@@ -133,7 +134,7 @@ export const projectData = [
 
 // Technical Skills
 export const technicalSkills = {
-  languages: ["JavaScript", "TypeScript", "Python", "PHP", "Go"],
+  languages: ["JavaScript", "TypeScript", "Python", "PHP"],
   frameworks: ["NodeJS", "ExpressJS", "NestJS", "ReactJS", "NextJS", "Flask", "Laravel"],
   databases: ["PostgreSQL", "MongoDB", "AstraDB"],
   orm: ["TypeORM", "Prisma", "SQLAlchemy"],
