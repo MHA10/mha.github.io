@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { personalInfo } from "./data";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const titles = ["Backend Technical Lead", "Software Engineer", "Full Stack Developer"];
+  const titles = useMemo(() => ["Backend Technical Lead", "Software Engineer", "Full Stack Developer"], []);
   
   useEffect(() => {
     const currentTitle = titles[currentIndex];
@@ -25,7 +25,7 @@ const Hero = () => {
     }, 100);
     
     return () => clearInterval(typeWriter);
-  }, [currentIndex]);
+  }, [currentIndex, titles]);
 
   return (
     <div className="hero-container fade-in">

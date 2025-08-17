@@ -5,7 +5,7 @@ const Contact = () => {
     <div className="contact-container">
       <h2>Get In Touch</h2>
       <p className="contact-subtitle">
-        I'm always interested in new opportunities and collaborations. 
+        I&apos;m always interested in new opportunities and collaborations. 
         Whether you have a project in mind, want to discuss technology, 
         or just want to say hello, feel free to reach out!
       </p>
